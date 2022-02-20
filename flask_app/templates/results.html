@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success!</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>All Emails</h1>
+        <div class="box">
+            {% for email in all_emails %}
+            <div class="row">
+                <p>{{ email.email }} <span class="email_date">{{ email.created_at }}</span></p>
+                <a href="/email_delete/{{ email.id }}" class="btn box_btn">Delete Email</a>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="/" class="btn">Home</a>
+    </div>
+</body>
+</html>
